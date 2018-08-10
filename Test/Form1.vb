@@ -11,8 +11,14 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        Me.Validate()
-        Me.INVENTARIOBindingSource.EndEdit()
-        Me.TableAdapterManager1.UpdateAll(Me.GradiDataSet1)
+        Try
+            Me.Validate()
+            Me.INVENTARIOBindingSource.EndEdit()
+            Me.TableAdapterManager1.UpdateAll(Me.GradiDataSet1)
+            MsgBox("Update successful")
+
+        Catch ex As Exception
+            MsgBox("Update failed")
+        End Try
     End Sub
 End Class
