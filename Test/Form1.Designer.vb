@@ -32,14 +32,15 @@ Partial Class Form1
         Me.OleDbDeleteCommand1 = New System.Data.OleDb.OleDbCommand()
         Me.OleDbDataAdapter1 = New System.Data.OleDb.OleDbDataAdapter()
         Me.OleDbCommand1 = New System.Data.OleDb.OleDbCommand()
-        Me.GradiDataSet1 = New Test.GradiDataSet()
-        Me.INVENTARIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.INVENTARIOTableAdapter = New Test.GradiDataSetTableAdapters.INVENTARIOTableAdapter()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.INVENTARIOBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GradiDataSet1 = New Test.GradiDataSet()
+        Me.INVENTARIOTableAdapter = New Test.GradiDataSetTableAdapters.INVENTARIOTableAdapter()
+        Me.TableAdapterManager1 = New Test.GradiDataSetTableAdapters.TableAdapterManager()
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GradiDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.INVENTARIOBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GradiDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGrid1
@@ -88,20 +89,6 @@ Partial Class Form1
         Me.OleDbDataAdapter1.TableMappings.AddRange(New System.Data.Common.DataTableMapping() {New System.Data.Common.DataTableMapping("Table", "INVENTARIO", New System.Data.Common.DataColumnMapping() {New System.Data.Common.DataColumnMapping("Material", "Material"), New System.Data.Common.DataColumnMapping("Grosor", "Grosor"), New System.Data.Common.DataColumnMapping("Color", "Color"), New System.Data.Common.DataColumnMapping("Medida", "Medida"), New System.Data.Common.DataColumnMapping("Ubicación", "Ubicación"), New System.Data.Common.DataColumnMapping("Estado", "Estado"), New System.Data.Common.DataColumnMapping("Serie", "Serie")})})
         Me.OleDbDataAdapter1.UpdateCommand = Me.OleDbUpdateCommand1
         '
-        'GradiDataSet1
-        '
-        Me.GradiDataSet1.DataSetName = "GradiDataSet"
-        Me.GradiDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'INVENTARIOBindingSource
-        '
-        Me.INVENTARIOBindingSource.DataMember = "INVENTARIO"
-        Me.INVENTARIOBindingSource.DataSource = Me.GradiDataSet1
-        '
-        'INVENTARIOTableAdapter
-        '
-        Me.INVENTARIOTableAdapter.ClearBeforeFill = True
-        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(588, 201)
@@ -120,6 +107,26 @@ Partial Class Form1
         Me.Button2.Text = "Guardar"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'INVENTARIOBindingSource
+        '
+        Me.INVENTARIOBindingSource.DataMember = "INVENTARIO"
+        Me.INVENTARIOBindingSource.DataSource = Me.GradiDataSet1
+        '
+        'GradiDataSet1
+        '
+        Me.GradiDataSet1.DataSetName = "GradiDataSet"
+        Me.GradiDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'INVENTARIOTableAdapter
+        '
+        Me.INVENTARIOTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.INVENTARIOTableAdapter = Me.INVENTARIOTableAdapter
+        Me.TableAdapterManager1.UpdateOrder = Test.GradiDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -131,8 +138,8 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.DataGrid1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GradiDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.INVENTARIOBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GradiDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -150,4 +157,5 @@ Partial Class Form1
     Friend WithEvents INVENTARIOTableAdapter As GradiDataSetTableAdapters.INVENTARIOTableAdapter
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents TableAdapterManager1 As GradiDataSetTableAdapters.TableAdapterManager
 End Class

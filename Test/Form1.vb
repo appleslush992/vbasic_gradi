@@ -13,6 +13,6 @@ Public Class Form1
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Me.Validate()
         Me.INVENTARIOBindingSource.EndEdit()
-        Me.INVENTARIOTableAdapter.Update(Me.GradiDataSet1)
+        Me.TableAdapterManager1.UpdateAll(Me.GradiDataSet1)
     End Sub
 End Class
